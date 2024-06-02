@@ -12,7 +12,7 @@
 // Code example
 let nftCounter = 0;
 
-function generateNFT(name, details, imageUrl) {
+function mintNFT(name, details, imageUrl) {
   const nftObject = {
     name: name,
     details: details,
@@ -22,7 +22,7 @@ function generateNFT(name, details, imageUrl) {
   return nftObject;
 }
 
-function showNFTs(nftList) {
+function listNFTs(nftList) {
   nftList.forEach(nft => {
     console.log("Name: " + nft.name);
     console.log("Details: " + nft.details);
@@ -31,17 +31,17 @@ function showNFTs(nftList) {
   });
 }
 
-function countNFTs() {
+function getTotalSupply() {
   console.log("Total NFTs: " + nftCounter);
 }
 
 const nftCollection = [];
 
-const nftOne = generateNFT("NFT One", "This is the first NFT", "imageOne.jpg");
+const nftOne = mintNFT("NFT One", "This is the first NFT", "imageOne.jpg");
 nftCollection.push(nftOne);
 
-const nftTwo = generateNFT("NFT Two", "This is the second NFT", "imageTwo.jpg");
+const nftTwo = mintNFT("NFT Two", "This is the second NFT", "imageTwo.jpg");
 nftCollection.push(nftTwo);
 
-showNFTs(nftCollection);
-countNFTs();
+listNFTs(nftCollection);
+getTotalSupply();
