@@ -24,32 +24,45 @@ Setting up Remix:
 
 
 '''
-// SPDX-License-Identifier: MIT
-pragma solidity 0.8.18;
+// Code example
+let nftCounter = 0;
 
-contract MyToken {
-    // public variables here
-    string public Tname = "MyCoin";
-    string public Tabbrev = "MC";
-    uint public Ttotal = 0;
-
-    // mapping variable here
-    mapping(address => uint) public Adresstobalance;
-
-    // mint function
-    function mint(address _address, uint _value) public {
-        Ttotal += _value;
-        Adresstobalance[_address] += _value;
-    }
-
-    // burn function
-    function burn(address _address, uint _value) public {
-        if (Adresstobalance[_address] >= _value) {
-            Ttotal -= _value;
-            Adresstobalance[_address] -= _value;
-        }
-    }
+function mintNFT(name, details, imageUrl) {
+  const nftObject = {
+    name: name,
+    details: details,
+    imageUrl: imageUrl
+  };
+  nftCounter++;
+  return nftObject;
 }
+
+function listNFTs(nftList) {
+  nftList.forEach(nft => {
+    console.log("Name: " + nft.name);
+    console.log("Details: " + nft.details);
+    console.log("Image URL: " + nft.imageUrl);
+    console.log("------------------");
+  });
+}
+
+function getTotalSupply() {
+  console.log("Total NFTs: " + nftCounter);
+}
+
+const nftCollection = [];
+
+const nftOne = mintNFT("NFT One", "This is the first NFT", "imageOne.jpg");
+nftCollection.push(nftOne);
+
+const nftTwo = mintNFT("NFT Two", "This is the second NFT", "imageTwo.jpg");
+nftCollection.push(nftTwo);
+
+listNFTs(nftCollection);
+getTotalSupply();
+
+'''
+
 
 
 
@@ -75,7 +88,7 @@ contract MyToken {
 
 Prabhat Kumar
  
-21BCS8342@cuchd.in
+pk42754321@gmail.com
 ## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.This code is licensed under the MIT License. You can find the license text in the SPDX-License-Identifier comment at the beginning of the contract.
